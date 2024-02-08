@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Assign Student to Course</title>
+<link rel="stylesheet" th:href="@{/css/assign.css}" />
+</head>
+<body>
+	<h1>Assign Student to Course</h1>
+	<form action="#" th:action="@{/assignStudent}" method="post">
+		<select name="studentId">
+			<option th:each="student : ${students}" th:value="${student.id}"
+				th:text="${student.firstName + ' ' + student.lastName}"></option>
+		</select><br>
+		<br> <select name="courseId">
+			<option th:each="course : ${courses}" th:value="${course.id}"
+				th:text="${course.name}"></option>
+		</select><br>
+		<br>
+		<button type="submit">Assign</button>
+	</form>
+
+	<a href="/" class="button"> &#x25c0 Home Page</a>
+
+</body>
+</html>

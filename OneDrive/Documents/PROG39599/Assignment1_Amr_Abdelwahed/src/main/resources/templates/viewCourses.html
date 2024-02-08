@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Courses for a particular Student</title>
+<link rel="stylesheet" th:href="@{/css/view.css}" />
+
+</head>
+<body>
+	<h1>Courses Enrolled by Student</h1>
+	<h4
+		th:text="'Student: ' + ${student.firstName + ' ' + student.lastName}"></h4>
+	<h2>Courses:</h2>
+	<ul>
+		<li th:each="course : ${student.courses}" th:text="${course.name}"></li>
+	</ul>
+
+	<a href="/" class="button"> &#x25c0 Home Page</a>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/root.css}" />
+
+</head>
+<body>
+ <h1>Welcome to our School's Scheduling System</h1>
+ 
+ <h2>Students</h2>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr th:each="student : ${students}">
+            <td><a th:href="@{'/viewCourses/' + ${student.id}}" th:text="${student.firstName + ' ' + student.lastName}"></a></td>
+        </tr>
+    </table>
+
+    <h2>Courses</h2>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr th:each="course : ${courses}">
+            <td><a th:href="@{'/displayCourse/' + ${course.id}}" th:text="${course.name}"></a></td>
+        </tr>
+    </table>
+
+    <h2>Professors</h2>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr th:each="professor : ${professors}">
+            <td><a th:href="@{'/viewClasses/' + ${professor.id}}" th:text="${professor.name}"></a></td>
+        </tr>
+    </table>
+ 
+     <div class="button-container">
+        <a href="/addStudent" class="button">Add Student</a>
+        <a href="/addCourse" class="button">Add Course</a>
+        <a href="/addProfessor" class="button">Add Professor</a>
+        
+        <a href="/assignStudent" class="button">Assign Student to Course</a>
+        <a href="/assignProfessor" class="button">Assign Course to Professor</a>
+
+    </div>
+</body>
+</html>
